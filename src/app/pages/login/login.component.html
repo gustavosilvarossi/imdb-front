@@ -1,1 +1,48 @@
-<p>login works!</p>
+<div class="container-login">
+
+    <div class="row-align-center" *ngIf="!isRegister">
+        <div class="container-input">
+            <form class="example-form">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Email</mat-label>
+                    <input type="email" matInput [(ngModel)]="email" name="email" placeholder="Ex. pat@example.com">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Senha</mat-label>
+                    <input type="password" matInput [(ngModel)]="senha" name="senha" placeholder="Ex. pat@example.com">
+                </mat-form-field>
+                <button mat-flat-button (click)="send()">Entrar</button>
+            </form>
+            <button mat-flat-button class="registration-button" (click)="isRegister = true">
+                Ainda não tem conta? Registre-se
+            </button>
+        </div>
+    </div>
+
+    <div class="row-align-center" *ngIf="!!isRegister">
+        <div class="container-input">
+            <form class="example-form">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Email</mat-label>
+                    <input type="email" [(ngModel)]="create_email" name="create_email" matInput
+                        placeholder="Ex. pat@example.com">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Nome Usuario</mat-label>
+                    <input type="text" [(ngModel)]="create_senha" name="create_senha" matInput
+                        placeholder="Ex. pat@example.com">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Senha</mat-label>
+                    <input type="password" [(ngModel)]="create_nome_user" name="create_nome_user" matInput
+                        placeholder="Ex. pat@example.com">
+                </mat-form-field>
+                <button mat-flat-button (click)="registerNewUser()">Registrar</button>
+            </form>
+            <button mat-flat-button class="registration-button" (click)="isRegister = false">
+                Login
+            </button>
+        </div>
+    </div>
+
+</div>

@@ -85,7 +85,9 @@ export class HttpService {
         }
       }
 
-      if (!res.error) return resolve({ success: true, data: res, error: undefined, timestamp: Date.now() });
+      console.log(res)
+
+      if (!res.error) return resolve({ success: true, data: res.body, error: undefined, timestamp: Date.now() });
 
     })
   }
@@ -97,7 +99,7 @@ export class HttpService {
 
       try {
 
-        const res: any = await firstValueFrom(this.http.get(url, { headers: header, responseType: 'json' })).catch(reason => reason);
+        const res: any = await firstValueFrom(this.http.get(url, { headers: header, responseType: 'json', observe: 'response' })).catch(reason => reason);
 
         return resolve(await this.errorHandling(res))
 
@@ -114,7 +116,7 @@ export class HttpService {
     return new Promise(async (resolve) => {
       try {
 
-        const res: any = await firstValueFrom(this.http.post(url, model, { headers: header, responseType: 'json' })).catch(reason => reason);
+        const res: any = await firstValueFrom(this.http.post(url, model, { headers: header, responseType: 'json', observe: 'response' })).catch(reason => reason);
 
         return resolve(await this.errorHandling(res));
 
@@ -131,7 +133,7 @@ export class HttpService {
     return new Promise(async (resolve) => {
       try {
 
-        const res: any = await firstValueFrom(this.http.delete(url, { headers: header, responseType: 'json' })).catch(reason => reason);
+        const res: any = await firstValueFrom(this.http.delete(url, { headers: header, responseType: 'json', observe: 'response' })).catch(reason => reason);
 
         return resolve(await this.errorHandling(res));
 

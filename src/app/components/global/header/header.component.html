@@ -1,4 +1,4 @@
-<mat-toolbar>
+<mat-toolbar *ngIf="!!authSrv.$isLogged.getValue()">
     <ul>
         <li><a href="#">Filmes</a></li>
         <li><a href="#">Meus </a></li>
