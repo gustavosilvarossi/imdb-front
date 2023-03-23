@@ -60,7 +60,6 @@ export class AuthService {
 
     this.loadAuth();
 
-    return await this.notifySrv.basicNotify(result.error.message, 'error');
   }
 
   async logout() {
