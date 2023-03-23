@@ -5,6 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/global/header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MoviesComponent } from './pages/movies/movies.component';
+import { MyMoviesComponent } from './pages/my-movies/my-movies.component';
+import { LoginComponent } from './pages/login/login.component';
+import { HttpService } from './services/global/http/http.service';
+import { AuthGuard } from './auth/auth.guard';
+import { AuthService } from './services/global/auth/auth.service';
+import { HttpClientModule } from '@angular/common/http';
+
+// Angular Material imports
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -15,13 +24,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
-import { MoviesComponent } from './pages/movies/movies.component';
-import { MyMoviesComponent } from './pages/my-movies/my-movies.component';
-import { LoginComponent } from './pages/login/login.component';
-import { HttpService } from './services/global/http/http.service';
-import { AuthGuard } from './auth/auth.guard';
-import { AuthService } from './services/global/auth/auth.service';
-import { HttpClientModule } from '@angular/common/http';
+import { MatInputModule } from '@angular/material/input';
+import { FormBuilder, FormsModule } from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -45,9 +49,11 @@ import { HttpClientModule } from '@angular/common/http';
     MatListModule,
     MatPaginatorModule,
     MatTableModule,
-    MatCardModule
+    MatCardModule,
+    MatInputModule,
+    FormsModule,
   ],
-  providers: [HttpService, AuthService, AuthGuard],
+  providers: [HttpService, AuthService, AuthGuard, FormBuilder],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
