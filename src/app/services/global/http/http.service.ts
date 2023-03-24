@@ -40,7 +40,7 @@ export class HttpService {
         header = header.set('Pragma', 'no-cache')
       }
 
-      const token = sessionStorage.getItem('token');
+      const token = localStorage.getItem('token');
 
       if (token) {
         header = header.set('Authorization', `Bearer ${token}`);
@@ -84,8 +84,6 @@ export class HttpService {
             break;
         }
       }
-
-      console.log(res)
 
       if (!res.error) return resolve({ success: true, data: res.body, error: undefined, timestamp: Date.now() });
 
