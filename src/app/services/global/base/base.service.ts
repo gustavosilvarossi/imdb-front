@@ -10,11 +10,11 @@ export class BaseService<T> {
     this.URL_BASE = `${environment.url_api}/${this.url}`;
   }
 
-  async findCustomOne(options?: T): Promise<IResponse> {
+  async findCustomOne(options?: any): Promise<IResponse> {
     return await this.httpSrv.post(`${this.URL_BASE}/find/one`, { ...options });
   }
 
-  async findCustomMany(options?: T): Promise<IResponse> {
+  async findCustomMany(options?: any): Promise<IResponse> {
     return await this.httpSrv.post(`${this.URL_BASE}/find/all`, { ...options });
   }
 
@@ -24,13 +24,13 @@ export class BaseService<T> {
     });
   }
 
-  async update(data: T, id: number): Promise<IResponse> {
+  async update(data: T, id: string): Promise<IResponse> {
     return await this.httpSrv.post(`${this.URL_BASE}/update/${+id}`, {
       ...data,
     });
   }
 
-  async remove(id: number): Promise<IResponse> {
+  async remove(id: string): Promise<IResponse> {
     return await this.httpSrv.delete(`${this.URL_BASE}/delete/${+id}`);
   }
 

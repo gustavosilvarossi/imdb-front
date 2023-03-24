@@ -1,6 +1,6 @@
 <mat-toolbar *ngIf="!!authSrv.$isLogged.getValue()">
     <ul>
-        <li><a href="#">Filmes</a></li>
-        <li><a href="#">Meus </a></li>
+        <li><a (click)="router.navigate([''])">Filmes</a></li>
+        <li><a (click)="router.navigate(['my-movies'])">Meus </a></li>
     </ul>
 </mat-toolbar>
