@@ -4,14 +4,6 @@ mat-toolbar {
     height: 4em;
 }
 
-*,
-*::before,
-*::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 ul {
     font-family: "Chivo Mono", monospace;
     display: flex;
@@ -20,6 +12,7 @@ ul {
 
 ul li {
     list-style: none;
+    cursor: pointer;
 }
 
 ul li a {
@@ -37,11 +30,6 @@ ul:hover li a {
 }
 
 ul:hover li a:not(:hover) {
-    // color: white;
     opacity: 0.3;
     filter: blur(1px);
-}
-
-ul li a::selection {
-    color: #30edf4;
 }
