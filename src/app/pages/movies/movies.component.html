@@ -1,1 +1,10 @@
-<p>movies works!</p>
+<ng-container>
+    <div class="content-movies">
+        <div *ngFor="let movie of movies" class="l-movie">
+            <img [src]="movie.image" [alt]="movie.title" height="200px" width="200px">
+            <span>{{ movie.title }}</span>
+            <span>{{ movie.description }}</span>
+            <button (click)="sendFavorite(movie)" *ngIf="!!canFavorite(movie)">Favorite</button>
+        </div>
+    </div>
+</ng-container>
